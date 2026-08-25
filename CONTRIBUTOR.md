@@ -22,16 +22,16 @@ You can use the script `deploy_openimis.sh` to initialise all components (uses P
 * Choose a database default system to use. The default is PostgreSQL (`DB_DEFAULT=postgresql`, `DB_PORT=5432`), but you can also use MSSQL (`DB_DEFAULT=mssql`, `DB_PORT=1433`, `ACCEPT_EULA=Y`). 
 * Uncomment the line `DEMO_DATASET=true` in `.env` to initialise the database with the DEMO dataset. If you leave it commented, an empty openIMIS database will be created.
 
-## OpenFN/Lightning setup 
+## External data ingestion (ETL)
 
-If the implementation involves managing the social protection workflow/import, then OpenFN/Lightning must be set up with the following steps:
+Inbound integration with external systems is handled by the `api_etl` backend module and
+its per-source connector modules, configured through each connector's
+`ModuleConfiguration`. Credentials are referenced indirectly as `"env:VAR_NAME"` and
+supplied through the environment rather than stored in the database.
 
-* Copy `.env.lightning.example` to `.env.lightning` and make the necessary adjustments.
-* Create the `lightning_dev` database in the database container.
-* Build the container: `docker compose -f docker-compose.yml -f docker-compose.lightning.yml build lightning`.
-* Run migrations: `docker compose -f docker-compose.yml -f docker-compose.lightning.yml run --rm lightning mix ecto.migrate`.
-* Set up the IMIS demo: `docker compose -f docker-compose.yml -f docker-compose.lightning.yml run --rm lightning ./imisSetup.sh`.
-* Start the service: `docker compose -f docker-compose.yml -f docker-compose.lightning.yml up lightning`.
+> The previous OpenFN/Lightning instructions were removed: the `lightning` service,
+> `.env.lightning.example` and `compose.lightning.yml` were deleted upstream in November
+> 2024, so those steps could no longer be followed.
 
 ## OpenSearch/OpenSearch Dashboards setup 
 
