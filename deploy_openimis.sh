@@ -17,15 +17,8 @@ else
 echo "initialisation"
 
 docker compose  up -d db
-# #set -a # automatically export all variables
-# source .env
-# source .env.lightning
-# #set +a
-# docker compose  run -e  PGPASSWORD=${POSTGRES_PASSWORD} --rm db createdb -h db -U ${POSTGRES_USER}  ${POSTGRES_DB}
-# set -e
-# docker compose  run --rm  web mix ecto.migrate
-# docker compose  run --rm web mix run imisSetupScripts/imisSetup.exs
-# #TODO init OpenSearch dashboard with API/ manage command
+# TODO init the OpenSearch dashboard from the API / a manage command, rather than the
+# manual import the echoes below describe.
 echo "connect to https://{DOMAIN}"
 echo "then go to https://{DOMAIN}/opensearch"
 echo "then go in manage / saved object / import to import the OpenSearch dashboard"

@@ -4,7 +4,7 @@ This repository provides a Docker package for openIMIS that includes all compone
 
 If you are only looking to setup and test the solution please look for further instructions on the [openIMIS Wiki](https://openimis.atlassian.net/wiki/spaces/OP/pages/963182705/MO1.1+Install+the+modular+openIMIS+using+Docker)
 
-The openIMIS docker compose currently includes the database, backend and worker, frontend, and third parties components (Lightning, OpenSearch, RabbitMQ, etc.).
+The openIMIS docker compose currently includes the database, backend and worker, frontend, and third parties components (OpenSearch, RabbitMQ, Redis, etc.).
 
 In case of troubles, please contact our service desk via our [ticketing platform](https://openimis.atlassian.net/servicedesk/customer).
 
